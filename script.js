@@ -140,12 +140,29 @@ function setLanguage(lang) {
 
 document.addEventListener('DOMContentLoaded', () => {
   const langToggleBtn = document.getElementById('langToggle');
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const navLinks = document.querySelector('.nav-links');
+
   if (langToggleBtn) {
     langToggleBtn.addEventListener('click', () => {
       const newLang = currentLang === 'en' ? 'so' : 'en';
       setLanguage(newLang);
+      navLinks.classList.remove('active');
     });
   }
+
+  if (mobileMenuBtn) {
+    mobileMenuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  }
+
+  // Close mobile menu when clicking a link
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+    });
+  });
 
   // Appointment Form Submission
   const bookingForm = document.getElementById('bookingForm');

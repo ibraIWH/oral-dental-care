@@ -111,6 +111,12 @@ header {
   color: white;
 }
 
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
 .mobile-menu-btn {
   display: none;
   background: none;
@@ -425,6 +431,20 @@ footer {
   }
   .nav-links {
     display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    background: var(--surface);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    border-bottom: 1px solid var(--border);
+    gap: 1rem;
+    align-items: center;
+  }
+  .nav-links.active {
+    display: flex;
   }
   .mobile-menu-btn {
     display: block;

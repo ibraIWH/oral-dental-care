@@ -1,19 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap');
 
 :root {
-  --primary: #0284C7;
-  --primary-dark: #0369A1;
-  --secondary: #E0F2FE;
-  --accent: #0D9488;
-  --bg: #F8FAFC;
+  --primary: #0052CC;
+  --primary-dark: #0747A6;
+  --secondary: #EBF8FF;
+  --accent: #FF5630;
+  --bg: #FFFFFF;
   --surface: #FFFFFF;
-  --text: #0F172A;
-  --text-muted: #64748B;
-  --border: #E2E8F0;
-  --success: #10B981;
-  --error: #EF4444;
+  --surface-alt: #F4F5F7;
+  --text: #091E42;
+  --text-muted: #5E6C84;
+  --border: #DFE1E6;
+  --success: #36B37E;
+  --error: #FF5630;
   --radius: 12px;
-  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow: 0 4px 12px rgba(9, 30, 66, 0.08);
 }
 
 * {
@@ -49,7 +50,7 @@ a {
 /* Header & Navigation */
 header {
   background: var(--surface);
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  box-shadow: 0 1px 3px rgba(9, 30, 66, 0.05);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -81,7 +82,7 @@ header {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1.75rem;
   list-style: none;
 }
 
@@ -89,6 +90,7 @@ header {
   font-weight: 500;
   color: var(--text-muted);
   transition: color 0.2s;
+  font-size: 0.95rem;
 }
 
 .nav-links a:hover {
@@ -97,7 +99,7 @@ header {
 
 .lang-btn {
   background: var(--secondary);
-  color: var(--primary-dark);
+  color: var(--primary);
   border: 1px solid var(--primary);
   padding: 0.5rem 1rem;
   border-radius: 20px;
@@ -224,6 +226,7 @@ header {
 /* Services Section */
 .services {
   padding: 5rem 0;
+  background: var(--surface-alt);
 }
 
 .section-header {
@@ -235,6 +238,11 @@ header {
 .section-header h2 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
+}
+
+.section-header p {
+  color: var(--text-muted);
+  font-size: 1.1rem;
 }
 
 .services-grid {
@@ -254,7 +262,7 @@ header {
 
 .service-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 20px rgba(9, 30, 66, 0.12);
 }
 
 .service-icon {
@@ -278,6 +286,95 @@ header {
 .service-card p {
   color: var(--text-muted);
   font-size: 0.95rem;
+}
+
+/* Instagram Feed Section */
+.instagram-section {
+  padding: 5rem 0;
+  background: var(--surface);
+}
+
+.instagram-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.ig-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: block;
+  position: relative;
+}
+
+.ig-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(9, 30, 66, 0.12);
+}
+
+.ig-image-container {
+  position: relative;
+  height: 260px;
+  overflow: hidden;
+  background: #000;
+}
+
+.ig-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.ig-card:hover .ig-image-container img {
+  transform: scale(1.05);
+}
+
+.ig-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.ig-content {
+  padding: 1.25rem;
+}
+
+.ig-content p {
+  color: var(--text);
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ig-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.ig-handle {
+  color: var(--primary);
+  font-weight: 600;
 }
 
 /* Booking Section */
@@ -341,7 +438,7 @@ input, select {
 input:focus, select:focus {
   outline: none;
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.1);
+  box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.12);
 }
 
 .form-message {
@@ -353,16 +450,16 @@ input:focus, select:focus {
 }
 
 .form-message.success {
-  background: #D1FAE5;
-  color: #065F46;
-  border: 1px solid #10B981;
+  background: #E3FCEF;
+  color: #006644;
+  border: 1px solid #36B37E;
   display: block;
 }
 
 .form-message.error {
-  background: #FEE2E2;
-  color: #991B1B;
-  border: 1px solid #EF4444;
+  background: #FFEBE6;
+  color: #DE350B;
+  border: 1px solid #FF5630;
   display: block;
 }
 
@@ -387,7 +484,7 @@ footer {
 }
 
 .footer-col p, .footer-col li {
-  color: #94A3B8;
+  color: #A5ADBA;
   margin-bottom: 0.75rem;
   list-style: none;
   font-size: 0.95rem;
@@ -406,7 +503,7 @@ footer {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
   padding: 0.5rem 1rem;
   border-radius: 8px;
   margin-top: 0.5rem;
@@ -415,8 +512,8 @@ footer {
 .footer-bottom {
   text-align: center;
   padding-top: 2rem;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  color: #94A3B8;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: #A5ADBA;
   font-size: 0.875rem;
 }
 
